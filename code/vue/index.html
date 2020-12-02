@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mini Vue</title>
+</head>
+<body>
+  <div id="app">
+    <h1>插值表达式</h1>
+    <div>{{ msg }}</div>
+    <div>{{ count }}</div>
+    <h1>v-text</h1>
+    <div v-text="msg"></div>
+    <h1>v-model</h1>
+    <input type="text" v-model="msg">
+    <input type="text" v-model="count">
+
+    <h1>v-html</h1>
+    <div v-html="html"></div>
+
+    <h1>v-on</h1>
+    <div v-on:click="clickHandler">点我👈</div>
+
+  </div>
+  <script src="./js/dep.js"></script>
+  <script src="./js/watcher.js"></script>
+  <script src="./js/compiler.js"></script>
+  <script src="./js/observer.js"></script>
+  <script src="./js/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello Vue',
+        count: 100,
+        person: { name: 'zs' },
+        html: '<span style="color: red">This should be red.</span>'
+      },
+      methods: {
+        clickHandler (e){
+          alert('测试 v-on 指令')
+        }
+      }
+    })
+    // console.log(vm.msg)
+    // vm.msg = { test: 'Hello' }
+    // vm.test = 'abc'
+  </script>
+</body>
+</html>
